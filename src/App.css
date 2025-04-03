@@ -1,42 +1,90 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* General Page Styles  */
+
+body { 
+  margin: 0;
+  padding: 0;
+  font-family:Verdana, Geneva, Tahoma, sans-serif; 
+  background-color:#3a4e3e;
+  color:black; 
+}
+
+h2 {
+  color: #172921; /* Darker shade for headings */
   text-align: center;
+  padding: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h3 {
+  color: #054c2c;
+  font-size:1em; 
+  text-align: center;
+  padding: 15px; 
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Quiz App Styling */
+
+.input {
+  background-color: #d0eddc; 
+  color: #000000; 
+  border: 1px solid #fff;
+  padding: 5px; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.questionnaire {
+  display: block; /* Ensures the question element behaves like a block element */
+  margin: 20px auto; /* Center the question block */
+  padding: 10px;
+  background-color: #47c378; /* Light background for contrast */
+  color: #02270d; /* Dark text for contrast */  
+  text-align: center; 
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  width: 80%; /* Responsive width */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
-.card {
-  padding: 2em;
+results {
+  display: block; /* Ensures the results element behaves like a block element */
+  margin: 20px auto; /* Center the results block */
+  padding: 10px;
+  background-color: #2ecc71; /* Green background for success */
+  color: white; /* White text for contrast */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  width: 80%; /* Responsive width */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center the text inside results */
 }
 
-.read-the-docs {
-  color: #888;
+.error { 
+  display: block; /* Ensures the error element behaves like a block element */
+  margin: 20px auto; /* Center the error block */
+  padding: 10px;
+  background-color: #e74c3c; /* Red background for errors */
+  color: white; /* White text for contrast */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  width: 80%; /* Responsive width */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center the text inside error */
 }
+
+button {
+  background-color: #3a644a; /* Blue background for buttons */
+  color: white; /* White text for contrast */
+  padding: 10px 20px; /* Padding for the button */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size for readability */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+button:hover {
+  background-color: #93e690b5; /* Lighter blue on hover */
+  color: #000; 
+}
+
+button:active {
+  background-color: #145717; /* Darker blue when button is pressed */
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Reduce shadow on active state */
+}
+
