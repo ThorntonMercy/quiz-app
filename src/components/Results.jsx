@@ -6,7 +6,7 @@ const Results = ({ userName, userAnswer, correctAnswer, onStartOver }) => {
 
   return (
     <div className="questionnaire">
-      <h3>{userName}, you picked {userAnswer}, and so you answered {isCorrect ? 'correctly' : 'incorrectly'}!</h3>
+      <h3>{userName}, you answered {isCorrect ? 'correctly' : 'incorrectly'}!</h3>
       {!isCorrect && (
         <p>The correct answer was: {correctAnswer}</p>
       )}
