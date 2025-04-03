@@ -47,7 +47,7 @@ h3 {
   display: block; 
   margin: 20px auto; 
   padding: 10px;
-  background-color: #ccc910; 
+  background-color: #ffcc00; 
   color: #000000; 
   border-radius: 5px;
   width: 80%; 
@@ -94,7 +94,7 @@ button:active {
 }
 
 .modal-content {
-  background-color: rgb(255, 204, 0);
+  background-color: #ffcc00;
   padding: 20px;
   border-radius: 5px;
   width: 300px;
