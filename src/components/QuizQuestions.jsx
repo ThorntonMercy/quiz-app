@@ -15,13 +15,14 @@ const QuizQuestions = ({ formData, onAnswerSubmit, onAnswerRetrieved }) => {
             if (data.results.length > 0) {
                 setQuestionData(data.results[0]);
             } else {
-                setError ('No questions found :(' );
+                setError('No questions found :(');
             }
         } catch (err) {
             setError('Error fetching a question, sorry!');
         }
- }; 
+    };
 
+// For randomized question category
     useEffect(() => {
         if (formData.category === 'random') {
             const getRandomCategory = async () => {
@@ -34,61 +35,78 @@ const QuizQuestions = ({ formData, onAnswerSubmit, onAnswerRetrieved }) => {
                 } catch (err) {
                     setError('Error fetching a random category, sorry!');
                 }
-            }; 
-            
+            };
+
             getRandomCategory();
         } else {
             fetchQuestion(formData.category, formData.difficulty);
         }
-        }, [formData]); 
+    }, [formData]);
 
-        const handleAnswerChange = (e) => {
-            setSelectedAnswer(e.target.value);
-        }; 
+    const handleAnswerChange = (e) => {
+        setSelectedAnswer(e.target.value);
+    };
 
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            if (!selectedAnswer) {
-                setError('Please select an answer');
-                return; 
-            }
-
-            setError('');
-            onAnswerSubmit(selectedAnswer)
-        }; 
-
-        if (error) {
-            return <div><p className="error">{error}</p></div>; 
+    // This error will pop up in the modal if the user tries to submit without selecting an answer
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!selectedAnswer) {
+            setError('You have to answer the questions, silly goose!');
+            return; 
         }
 
-        if (!questionData) {
-            return <div className="questionnaire">Loading...</div>;
-        }
+        setError('');
+        onAnswerSubmit(selectedAnswer);
+    };
 
-        const { question, correct_answer, incorrect_answers } = questionData;
-        const allAnswers = [...incorrect_answers, correct_answer].sort();
-        onAnswerRetrieved(correct_answer);
-    
+    const closeErrorModal = () => {
+        setError('');
+    };
+
+    const handleModalClick = (e) => {
+        // Close the modal only when clicking on the background (overlay), not inside the modal content
+        if (e.target.classList.contains('error-modal')) {
+            closeErrorModal();
+        }
+    };
+
+    if (!questionData) {
+        return <div className="questionnaire">Loading...</div>;
+    }
+
+    const { question, correct_answer, incorrect_answers } = questionData;
+    const allAnswers = [...incorrect_answers, correct_answer].sort();
+    onAnswerRetrieved(correct_answer);
+
     return (
         <div className="questionnaire">
             <h3>{question}</h3>
 
             <form onSubmit={handleSubmit}>
-            {allAnswers.map((answer, index) => (
-                <div key={index}>
-                    <input 
-                    type="radio"
-                    name="answer"
-                    value={answer}
-                    onChange={handleAnswerChange}
-                    /> 
-                    <label>{answer}</label>
-                </div> ))} 
-                
+                {allAnswers.map((answer, index) => (
+                    <div key={index}>
+                        <input 
+                            type="radio"
+                            name="answer"
+                            value={answer}
+                            onChange={handleAnswerChange}
+                        /> 
+                        <label>{answer}</label>
+                    </div>
+                ))} 
                 <button className="button" type="submit">Submit Answer</button>
-                </form>
+            </form>
+
+            {error && (
+                <div className="error-modal" onClick={handleModalClick}>
+                    <div className="modal-content">
+                        <p>{error}</p>
+                        <p className="return">Click anywhere to get back to the question.</p>
+                    </div>
+                </div>
+            )}
         </div>
     );
-}; 
+};
 
-export default QuizQuestions; 
+export default QuizQuestions;
