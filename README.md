@@ -1,12 +1,17 @@
-# React + Vite
+This project was to create a mini quiz app to showcase our React knowledge.
+I went with a somewhat sunflower-ish styling with dark and light greens, yellows, black, and white. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The app requirements: 
+1. Have a welcome message with a page title and instructions.
+2. Have user input areas for name, quiz subject, and quiz difficulty.
+3. Have requirements for form submission such as not entering info, not submitting answer, etc. and display relevant error code prompts for the user.
+4. Have a question display with radio buttons with the multiple choice answers
+5. Inputs all must be stored in an object, and not three separate variables.
+6. Have a results section which tells the user if they've answered correctly and, if not, display the correct answer. 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Bonuses: 
+1. I chose to do two different error "displays" to simply exercise different options available, with one triggering an error modal. Both have the same styling (background color, text color).
+2. I opted to challenge myself to do a randomized quiz category to practice more with randomzing / utilizing the Math.floor/Math.random method.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
